@@ -21,12 +21,12 @@ class SettingsView extends GetView<SettingsController> {
           children: [
             30.verticalSpace,
             const ScreenTitle(
-              title: 'Settings',
+              title: 'Configuraciones',
               dividerEndIndent: 230,
             ),
             20.verticalSpace,
             Text(
-              'Account',
+              'Cuenta',
               style: theme.textTheme.displayMedium?.copyWith(
                 fontSize: 20.sp,
                 fontWeight: FontWeight.normal,
@@ -34,13 +34,13 @@ class SettingsView extends GetView<SettingsController> {
             ),
             20.verticalSpace,
             const SettingsItem(
-              title: 'Alice Smith',
+              title: 'Usuario',
               icon: Constants.userIcon,
               isAccount: true,
             ),
             30.verticalSpace,
             Text(
-              'Settings',
+              'Configuraciones Generales',
               style: theme.textTheme.displayMedium?.copyWith(
                 fontSize: 20.sp,
                 fontWeight: FontWeight.normal,
@@ -54,17 +54,17 @@ class SettingsView extends GetView<SettingsController> {
             ),
             25.verticalSpace,
             const SettingsItem(
-              title: 'Language',
+              title: 'Lenguaje',
               icon: Constants.languageIcon,
             ),
             25.verticalSpace,
             const SettingsItem(
-              title: 'Help',
+              title: 'Ayuda',
               icon: Constants.helpIcon,
             ),
             25.verticalSpace,
             const SettingsItem(
-              title: 'Sign Out',
+              title: 'Cerrar Sesion',
               icon: Constants.logoutIcon,
             ),
             20.verticalSpace,

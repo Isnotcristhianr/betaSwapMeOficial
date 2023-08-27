@@ -23,7 +23,7 @@ Future<void> main() async {
       rebuildFactor: (old, data) => true,
       builder: (context, widget) {
         return GetMaterialApp(
-          title: "E-commerce App",
+          title: "SwapMe App",
           useInheritedMediaQuery: true,
           debugShowCheckedModeBanner: false,
           builder: (context,widget) {

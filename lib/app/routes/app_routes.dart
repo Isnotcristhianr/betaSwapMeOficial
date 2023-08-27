@@ -11,6 +11,12 @@ abstract class Routes {
   static const NOTIFICATIONS = _Paths.NOTIFICATIONS;
   static const SETTINGS = _Paths.SETTINGS;
   static const PRODUCT_DETAILS = _Paths.PRODUCT_DETAILS;
+  //login
+  static const LOGIN = _Paths.LOGIN;
+  //welcome
+  static const WELCOME = _Paths.WELCOME;
+  //signup
+  static const SIGNUP = _Paths.SIGNUP;
 }
 
 abstract class _Paths {
@@ -23,4 +29,10 @@ abstract class _Paths {
   static const NOTIFICATIONS = '/notifications';
   static const SETTINGS = '/settings';
   static const PRODUCT_DETAILS = '/product-details';
+  //login
+  static const LOGIN = '/login';
+  //welcome
+  static const WELCOME = '/welcome';
+  //signup
+  static const SIGNUP = '/signup';
 }

@@ -26,12 +26,12 @@ class CartView extends GetView<CartController> {
             children: [
               30.verticalSpace,
               const ScreenTitle(
-                title: 'Cart',
+                title: 'Intercambios',
                 dividerEndIndent: 280,
               ),
               20.verticalSpace,
               controller.products.isEmpty
-                ? const NoData(text: 'No Products in Your Cart Yet!')
+                ? const NoData(text: 'Aun no tienes intercambios en el carrito')
                 : ListView.builder(
                     itemCount: controller.products.length,
                     itemBuilder: (context, index) => CartItem(

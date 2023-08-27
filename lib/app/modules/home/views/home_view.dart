@@ -18,7 +18,7 @@ class HomeView extends GetView<HomeController> {
           children: [
             30.verticalSpace,
             const ScreenTitle(
-              title: 'Home',
+              title: 'Inicio',
             ),
             20.verticalSpace,
             GridView.builder(

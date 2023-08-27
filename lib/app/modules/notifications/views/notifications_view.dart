@@ -20,7 +20,7 @@ class NotificationsView extends GetView<NotificationsController> {
           children: [
             30.verticalSpace,
             const ScreenTitle(
-              title: 'Notifications',
+              title: 'Notificaciones',
               dividerEndIndent: 150,
             ),
             10.verticalSpace,

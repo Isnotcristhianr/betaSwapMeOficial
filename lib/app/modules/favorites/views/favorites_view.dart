@@ -20,13 +20,13 @@ class FavoritesView extends GetView<FavoritesController> {
           children: [
             30.verticalSpace,
             const ScreenTitle(
-              title: 'Favorites',
+              title: 'Deseados',
               dividerEndIndent: 200,
             ),
             20.verticalSpace,
             GetBuilder<FavoritesController>(
               builder: (_) => controller.products.isEmpty
-                ? const NoData(text: 'No Products in Favorite Yet!')
+                ? const NoData(text: 'Aun no tienes productos deseados')
                 : GridView.builder(
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,

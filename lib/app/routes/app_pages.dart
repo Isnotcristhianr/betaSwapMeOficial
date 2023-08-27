@@ -17,6 +17,12 @@ import '../modules/settings/views/settings_view.dart';
 import '../modules/splash/bindings/splash_binding.dart';
 import '../modules/splash/views/splash_view.dart';
 
+//login
+import '../../pages/login.dart';
+//welcome
+import '../../pages/signup.dart';
+//signup
+import '../../pages/welcome.dart';
 part 'app_routes.dart';
 
 class AppPages {
@@ -34,6 +40,21 @@ class AppPages {
       name: _Paths.BASE,
       page: () => const BaseView(),
       binding: BaseBinding(),
+    ),
+    //login
+    GetPage(
+      name: _Paths.LOGIN,
+      page: () => LoginPage(),
+    ),
+    //welcome
+    GetPage(
+      name: _Paths.WELCOME,
+      page: () =>  WelcomePage(),
+    ),
+    //signup
+    GetPage(
+      name: _Paths.SIGNUP,
+      page: () => Signup(),
     ),
     GetPage(
       name: _Paths.HOME,
