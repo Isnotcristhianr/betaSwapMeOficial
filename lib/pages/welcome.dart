@@ -2,7 +2,6 @@
 
 import 'dart:ui';
 
-import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
 import 'package:ecommerce_app/components/my_button.dart';
@@ -10,7 +9,6 @@ import 'package:ecommerce_app/components/my_textfield.dart';
 import 'package:ecommerce_app/components/square_tile.dart';
 import 'package:ecommerce_app/pages/signup.dart';
 
-import 'package:get/get.dart';
 
 
 class WelcomePage extends StatelessWidget {
@@ -20,11 +18,11 @@ class WelcomePage extends StatelessWidget {
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
 
-  double _sigmaX = 5; // from 0-10
-  double _sigmaY = 5; // from 0-10
-  double _opacity = 0.2;
-  double _width = 350;
-  double _height = 300;
+  final double _sigmaX = 5; // from 0-10
+  final double _sigmaY = 5; // from 0-10
+  final double _opacity = 0.2;
+  final double _width = 350;
+  final double _height = 300;
   final _formKey = GlobalKey<FormState>();
 
   // sign user in method
@@ -35,7 +33,7 @@ class WelcomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey[300],
       body: SingleChildScrollView(
-        child: Container(
+        child: SizedBox(
           height: MediaQuery.of(context).size.height,
           child: Stack(
             alignment: Alignment.center,

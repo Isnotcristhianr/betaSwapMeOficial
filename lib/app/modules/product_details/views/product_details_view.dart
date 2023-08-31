@@ -45,24 +45,24 @@ class ProductDetailsView extends GetView<ProductDetailsController> {
                       children: [
                         RoundedButton(
                           onPressed: () => Get.back(),
-                          child: SvgPicture.asset(
-                            Constants.backArrowIcon,
-                            fit: BoxFit.none
-                          ),
+                          child: SvgPicture.asset(Constants.backArrowIcon,
+                              fit: BoxFit.none),
                         ),
                         GetBuilder<ProductDetailsController>(
                           id: 'FavoriteButton',
                           builder: (_) => RoundedButton(
-                            onPressed: () => controller.onFavoriteButtonPressed(),
+                            onPressed: () =>
+                                controller.onFavoriteButtonPressed(),
                             child: Align(
                               child: SvgPicture.asset(
                                 controller.product.isFavorite!
-                                  ? Constants.favFilledIcon
-                                  : Constants.favOutlinedIcon,
+                                    ? Constants.favFilledIcon
+                                    : Constants.favOutlinedIcon,
                                 width: 16.w,
                                 height: 15.h,
                                 color: controller.product.isFavorite!
-                                  ? null : Colors.white,
+                                    ? null
+                                    : Colors.white,
                               ),
                             ),
                           ),
@@ -77,10 +77,10 @@ class ProductDetailsView extends GetView<ProductDetailsController> {
                       controller.product.image!,
                       height: 700.h,
                     ).animate().slideX(
-                      duration: const Duration(milliseconds: 300),
-                      begin: 1,
-                      curve: Curves.easeInSine,
-                    ),
+                          duration: const Duration(milliseconds: 300),
+                          begin: 1,
+                          curve: Curves.easeInSine,
+                        ),
                   ),
                 ],
               ),
@@ -91,10 +91,10 @@ class ProductDetailsView extends GetView<ProductDetailsController> {
                   controller.product.name!,
                   style: theme.textTheme.bodyLarge,
                 ).animate().fade().slideX(
-                  duration: const Duration(milliseconds: 300),
-                  begin: -1,
-                  curve: Curves.easeInSine,
-                ),
+                      duration: const Duration(milliseconds: 300),
+                      begin: -1,
+                      curve: Curves.easeInSine,
+                    ),
               ),
               10.verticalSpace,
               Padding(
@@ -111,80 +111,91 @@ class ProductDetailsView extends GetView<ProductDetailsController> {
                     Text(
                       controller.product.rating!.toString(),
                       style: theme.textTheme.bodyMedium?.copyWith(
-                        fontSize: 18.sp,
-                        fontWeight: FontWeight.bold
-                      ),
+                          fontSize: 18.sp, fontWeight: FontWeight.bold),
                     ),
                     5.horizontalSpace,
                     Text(
                       '(${controller.product.reviews!})',
-                      style: theme.textTheme.bodyMedium?.copyWith(fontSize: 16.sp),
+                      style:
+                          theme.textTheme.bodyMedium?.copyWith(fontSize: 16.sp),
                     ),
                   ],
                 ).animate().fade().slideX(
-                  duration: const Duration(milliseconds: 300),
-                  begin: -1,
-                  curve: Curves.easeInSine,
-                ),
+                      duration: const Duration(milliseconds: 300),
+                      begin: -1,
+                      curve: Curves.easeInSine,
+                    ),
               ),
               20.verticalSpace,
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20.w),
                 child: Text(
-                  'Choose your size:',
-                  style: theme.textTheme.bodyMedium?.copyWith(
-                    fontSize: 18.sp,
-                    fontWeight: FontWeight.bold
-                  ),
+                  'Talla Disponible: ',
+                  style: theme.textTheme.bodyMedium
+                      ?.copyWith(fontSize: 18.sp, fontWeight: FontWeight.bold),
                 ).animate().fade().slideX(
-                  duration: const Duration(milliseconds: 300),
-                  begin: -1,
-                  curve: Curves.easeInSine,
-                ),
+                      duration: const Duration(milliseconds: 300),
+                      begin: -1,
+                      curve: Curves.easeInSine,
+                    ),
               ),
               10.verticalSpace,
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20.w),
-                child: GetBuilder<ProductDetailsController>(
-                  id: 'Size',
-                  builder: (_) => Row(
-                    children: [
-                      SizeItem(
-                        onPressed: () => controller.changeSelectedSize('S'),
-                        label: 'S',
-                        selected: controller.selectedSize == 'S',
+                child: Row(
+                  children: [
+                    Text(
+                      ' S ',
+                      style: TextStyle(
+                        fontSize: 18.sp,
+                        fontWeight: FontWeight.bold,
+                        color: controller.selectedSize == 'S'
+                            ? Color.fromRGBO(32, 127, 69, 1.0)
+                            : Colors.black,
                       ),
-                      10.horizontalSpace,
-                      SizeItem(
-                        onPressed: () => controller.changeSelectedSize('M'),
-                        label: 'M',
-                        selected: controller.selectedSize == 'M',
+                    ),
+                    Text(
+                      ' M ',
+                      style: TextStyle(
+                        fontSize: 18.sp,
+                        fontWeight: FontWeight.bold,
+                        color: controller.selectedSize == 'M'
+                            ? Color.fromRGBO(32, 127, 69, 1.0)
+                            : Colors.black,
                       ),
-                      10.horizontalSpace,
-                      SizeItem(
-                        onPressed: () => controller.changeSelectedSize('L'),
-                        label: 'L',
-                        selected: controller.selectedSize == 'L',
+                    ),
+                    Text(
+                      ' L ',
+                      style: TextStyle(
+                        fontSize: 18.sp,
+                        fontWeight: FontWeight.bold,
+                        color: controller.selectedSize == 'L'
+                            ? Color.fromRGBO(32, 127, 69, 1.0)
+                            : Colors.black,
                       ),
-                      10.horizontalSpace,
-                      SizeItem(
-                        onPressed: () => controller.changeSelectedSize('XL'),
-                        label: 'XL',
-                        selected: controller.selectedSize == 'XL',
+                    ),
+                    Text(
+                      ' XL',
+                      style: TextStyle(
+                        fontSize: 18.sp,
+                        fontWeight: FontWeight.bold,
+                        color: controller.selectedSize == 'XL'
+                            ? Color.fromRGBO(32, 127, 69, 1.0)
+                            : Colors.black,
                       ),
-                    ],
-                  ).animate().fade().slideX(
-                    duration: const Duration(milliseconds: 300),
-                    begin: -1,
-                    curve: Curves.easeInSine,
-                  ),
-                ),              
+                    ),
+                  ],
+                ).animate().fade().slideX(
+                      duration: const Duration(milliseconds: 300),
+                      begin: -1,
+                      curve: Curves.easeInSine,
+                    ),
               ),
               20.verticalSpace,
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 30.w),
                 child: CustomButton(
-                  text: 'Add to Cart',
+                  text: 'Intercambiar',
                   onPressed: () => controller.onAddToCartPressed(),
                   disabled: controller.product.quantity! > 0,
                   fontSize: 16.sp,
@@ -196,10 +207,10 @@ class ProductDetailsView extends GetView<ProductDetailsController> {
                   shadowBlurRadius: 4,
                   shadowSpreadRadius: 0,
                 ).animate().fade().slideY(
-                  duration: const Duration(milliseconds: 300),
-                  begin: 1,
-                  curve: Curves.easeInSine,
-                ),
+                      duration: const Duration(milliseconds: 300),
+                      begin: 1,
+                      curve: Curves.easeInSine,
+                    ),
               ),
             ],
           ),
