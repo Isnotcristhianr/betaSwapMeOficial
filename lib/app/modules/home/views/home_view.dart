@@ -16,21 +16,19 @@ class HomeView extends GetView<HomeController> {
         padding: EdgeInsets.symmetric(horizontal: 20.w),
         child: ListView(
           children: [
-            30.verticalSpace,
+            40.verticalSpace,
             const ScreenTitle(
-              title: 'Inicio',
+              title: 'SwapMe',
             ),
-            20.verticalSpace,
-
+            0.verticalSpace,
             // Contenedor que contiene el carrusel
-            Container(
-              height: 100.h, // Ajusta la altura según tus necesidades
+            SizedBox(
+              height: 125.h, // Ajusta la altura según tus necesidades
               child: CarouselSlider(
                 options: CarouselOptions(
-                  aspectRatio: 16 / 9, // Ajusta la relación de aspecto según tus necesidades
                   enableInfiniteScroll: true,
                   autoPlay: true, // Reproducción automática
-                  autoPlayInterval: Duration(seconds: 5), // Intervalo de cambio de diapositivas
+                  autoPlayInterval: const Duration(seconds: 5), // Intervalo de cambio de diapositivas
                 ),
                 items: [
                   // Diapositiva 1
@@ -39,7 +37,7 @@ class HomeView extends GetView<HomeController> {
                     onChanged: (value) {
                       // Manejar el cambio en el valor del carrusel
                     },
-                    thumbImage: 'assets/images/p3.png',
+                    thumbImage: 'assets/images/b1.png',
                   ),
                   // Diapositiva 2
                   CustomSlider(
@@ -47,7 +45,14 @@ class HomeView extends GetView<HomeController> {
                     onChanged: (value) {
                       // Manejar el cambio en el valor del carrusel
                     },
-                    thumbImage: 'assets/images/p5.png',
+                    thumbImage: 'assets/images/b2.png',
+                  ),
+                  CustomSlider(
+                    value: 0.5,
+                    onChanged: (value) {
+                      // Manejar el cambio en el valor del carrusel
+                    },
+                    thumbImage: 'assets/images/b3.png',
                   ),
                 ],
               ),
@@ -83,7 +88,7 @@ class CustomSlider extends StatelessWidget {
   final ValueChanged<double> onChanged;
   final String thumbImage;
 
-  CustomSlider({
+  const CustomSlider({super.key, 
     required this.value,
     required this.onChanged,
     required this.thumbImage,

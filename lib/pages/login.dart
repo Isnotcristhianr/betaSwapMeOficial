@@ -1,9 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'dart:ui';
-import 'package:ecommerce_app/components/my_button.dart';
+import 'package:swapme/components/my_button.dart';
 
-import 'package:ecommerce_app/components/my_textfield.dart';
+import 'package:swapme/components/my_textfield.dart';
 import 'package:flutter/material.dart';
 
 
@@ -19,15 +19,17 @@ class LoginPage extends StatelessWidget {
   final double _sigmaX = 5; // from 0-10
   final double _sigmaY = 5; // from 0-10
   final double _opacity = 0.2;
-  final double _width = 350;
-  final double _height = 300;
+  //final double _width = 350;
+  //final double _height = 300;
   final _formKey = GlobalKey<FormState>();
 
   // sign user in method
   void signUserIn() {
     if (_formKey.currentState!.validate()) {
+      // ignore: avoid_print
       print('valid');
     } else {
+      // ignore: avoid_print
       print('not valid');
     }
   }

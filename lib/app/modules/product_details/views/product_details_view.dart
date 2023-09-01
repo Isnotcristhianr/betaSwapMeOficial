@@ -9,7 +9,7 @@ import '../../../../utils/constants.dart';
 import '../../../components/custom_button.dart';
 import '../controllers/product_details_controller.dart';
 import 'widgets/rounded_button.dart';
-import 'widgets/size_item.dart';
+//import 'widgets/size_item.dart';
 
 class ProductDetailsView extends GetView<ProductDetailsController> {
   const ProductDetailsView({Key? key}) : super(key: key);
@@ -150,7 +150,7 @@ class ProductDetailsView extends GetView<ProductDetailsController> {
                         fontSize: 18.sp,
                         fontWeight: FontWeight.bold,
                         color: controller.selectedSize == 'S'
-                            ? Color.fromRGBO(32, 127, 69, 1.0)
+                            ? const Color.fromRGBO(32, 127, 69, 1.0)
                             : Colors.black,
                       ),
                     ),
@@ -160,7 +160,7 @@ class ProductDetailsView extends GetView<ProductDetailsController> {
                         fontSize: 18.sp,
                         fontWeight: FontWeight.bold,
                         color: controller.selectedSize == 'M'
-                            ? Color.fromRGBO(32, 127, 69, 1.0)
+                            ? const Color.fromRGBO(32, 127, 69, 1.0)
                             : Colors.black,
                       ),
                     ),
@@ -170,7 +170,7 @@ class ProductDetailsView extends GetView<ProductDetailsController> {
                         fontSize: 18.sp,
                         fontWeight: FontWeight.bold,
                         color: controller.selectedSize == 'L'
-                            ? Color.fromRGBO(32, 127, 69, 1.0)
+                            ? const Color.fromRGBO(32, 127, 69, 1.0)
                             : Colors.black,
                       ),
                     ),
@@ -180,7 +180,7 @@ class ProductDetailsView extends GetView<ProductDetailsController> {
                         fontSize: 18.sp,
                         fontWeight: FontWeight.bold,
                         color: controller.selectedSize == 'XL'
-                            ? Color.fromRGBO(32, 127, 69, 1.0)
+                            ? const Color.fromRGBO(32, 127, 69, 1.0)
                             : Colors.black,
                       ),
                     ),
