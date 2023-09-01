@@ -28,7 +28,7 @@ class SettingsItem extends StatelessWidget {
         fontSize: 16.sp,
       )),
       subtitle: !isAccount ? null : Text(
-        '+191 23 456 7890',
+        '+593 999 999 999',
         style: theme.textTheme.displaySmall,
       ),
       leading: CircleAvatar(
@@ -38,7 +38,7 @@ class SettingsItem extends StatelessWidget {
       ),
       trailing: isDark
         ? GetBuilder<SettingsController>(
-            id: 'Theme',
+            id: 'Tema',
             builder: (controller) => CupertinoSwitch(
               value: !controller.isLightTheme,
               onChanged: controller.changeTheme,

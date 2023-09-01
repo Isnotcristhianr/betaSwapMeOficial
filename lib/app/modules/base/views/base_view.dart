@@ -24,12 +24,12 @@ class BaseView extends GetView<BaseController> {
           bottom: false,
           child: IndexedStack(
             index: controller.currentIndex,
-            children: const [
-              HomeView(),
-              FavoritesView(),
+            children:  [
+              const HomeView(),
+              const FavoritesView(),
               CartView(),
-              NotificationsView(),
-              SettingsView()
+              const NotificationsView(),
+              const SettingsView()
             ],
           ),
         ),

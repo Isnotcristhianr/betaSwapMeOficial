@@ -25,7 +25,7 @@ class NotificationsView extends GetView<NotificationsController> {
             ),
             10.verticalSpace,
             ListView.builder(
-              itemCount: 5,
+              itemCount: 1,
               itemBuilder: (context, index) => const NotificationItem()
                 .animate().fade().slideY(
                   duration: const Duration(milliseconds: 300),

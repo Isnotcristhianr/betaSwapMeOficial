@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../../../../utils/constants.dart';
 import '../../../components/custom_button.dart';
@@ -30,98 +30,51 @@ class CartView extends GetView<CartController> {
                 dividerEndIndent: 280,
               ),
               20.verticalSpace,
+              ElevatedButton(
+                onPressed: () async {
+                  final XFile? pickedImage = await ImagePicker().pickImage(
+                    source: ImageSource.gallery,
+                    maxWidth: 800,
+                    maxHeight: 600,
+                  );
+
+                  if (pickedImage != null) {
+                    // Agrega el producto seleccionado desde la galería
+                    controller.addNewProductFromGallery(pickedImage.path);
+                  }
+                },
+                child: Text('Agregar Intercambio'),
+              ),
+              Divider(), // Línea divisora
+
+              // Aquí se muestran los intercambios existentes
               controller.products.isEmpty
-                ? const NoData(text: 'Aun no tienes intercambios en el carrito')
-                : ListView.builder(
-                    itemCount: controller.products.length,
-                    itemBuilder: (context, index) => CartItem(
-                      product: controller.products[index],
-                    ).animate().fade().slideX(
-                      duration: const Duration(milliseconds: 300),
-                      begin: -1,
-                      curve: Curves.easeInSine,
-                    ),
-                    shrinkWrap: true,
-                    primary: false,
-                  ),
-              30.verticalSpace,
-              Visibility(
-                visible: controller.products.isNotEmpty,
-                child: Row(
-                  children: [
-                    Container(
-                      width: 65.w,
-                      height: 65.h,
-                      decoration: BoxDecoration(
-                        color: theme.primaryColor,
-                        borderRadius: BorderRadius.circular(12.r),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          SvgPicture.asset(Constants.busIcon),
-                          5.verticalSpace,
-                          Text('FREE', style: theme.textTheme.displaySmall?.copyWith(
-                            color: Colors.white,
-                          )),
-                        ],
-                      ),
-                    ),
-                    20.horizontalSpace,
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('Total:', style: theme.textTheme.bodyLarge?.copyWith(
-                          fontSize: 18.sp,
-                        )),
-                        10.verticalSpace,
-                        Text(
-                          '\$${controller.total.toStringAsFixed(2)}',
-                          style: theme.textTheme.displayLarge?.copyWith(
-                            decoration: TextDecoration.underline,
-                            decorationColor: theme.primaryColor.withOpacity(0.5),
-                            decorationThickness: 1,
-                            color: Colors.transparent,
-                            shadows: [
-                              Shadow(
-                                color: theme.textTheme.displayLarge!.color!,
-                                offset: const Offset(0, -5)
-                              ),
-                            ],
+                  ? const NoData(
+                      text: 'Aun no tienes intercambios en el carrito')
+                  : ListView.builder(
+                      itemCount: controller.products.length,
+                      itemBuilder: (context, index) => CartItem(
+                        product: controller.products[index],
+                      ).animate().fade().slideX(
+                            duration: const Duration(milliseconds: 300),
+                            begin: -1,
+                            curve: Curves.easeInSine,
                           ),
-                        ),
-                      ],
+                      shrinkWrap: true,
+                      primary: false,
                     ),
-                  ],
-                ).animate().fade().slideX(
-                  duration: const Duration(milliseconds: 300),
-                  begin: -1,
-                  curve: Curves.easeInSine,
-                ),
-              ),
               30.verticalSpace,
-              Visibility(
-                visible: controller.products.isNotEmpty,
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 30.w),
-                  child: CustomButton(
-                    text: 'Purchase Now',
-                    onPressed: () => controller.onPurchaseNowPressed(),
-                    fontSize: 16.sp,
-                    radius: 12.r,
-                    verticalPadding: 12.h,
-                    hasShadow: true,
-                    shadowColor: theme.primaryColor,
-                    shadowOpacity: 0.3,
-                    shadowBlurRadius: 4,
-                    shadowSpreadRadius: 0,
-                  ).animate().fade().slideY(
-                    duration: const Duration(milliseconds: 300),
-                    begin: 1,
-                    curve: Curves.easeInSine,
-                  ),
-                ),
-              ),
+
+              // Aquí se muestran los nuevos productos seleccionados desde la galería
+              if (controller.newProductsFromGallery.isNotEmpty)
+                ...controller.newProductsFromGallery.map((newProduct) => CartItem(
+                      product: newProduct,
+                    ).animate().fade().slideX(
+                          duration: const Duration(milliseconds: 300),
+                          begin: -1,
+                          curve: Curves.easeInSine,
+                        )),
+
               30.verticalSpace,
             ],
           ),

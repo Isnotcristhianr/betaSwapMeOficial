@@ -20,7 +20,7 @@ class NotificationItem extends StatelessWidget {
       ),
       child: ListTile(
         title: Text(
-          'New Notification received\nyour cart waiting for checkout',
+          'Bienvenido a la aplicación de intercambios, esto es una demo',
           style: theme.textTheme.displaySmall?.copyWith(
             fontWeight: FontWeight.normal,
           ),

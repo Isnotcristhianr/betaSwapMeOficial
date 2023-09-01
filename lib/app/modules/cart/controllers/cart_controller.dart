@@ -4,31 +4,29 @@ import '../../../../utils/dummy_helper.dart';
 import '../../../components/custom_snackbar.dart';
 import '../../../data/models/product_model.dart';
 import '../../base/controllers/base_controller.dart';
+import 'package:uuid/uuid.dart';
 
 class CartController extends GetxController {
-
-  // to hold the products in cart
   List<ProductModel> products = [];
-
-  // to hold the total price of the cart products
   var total = 0.0;
+  final List<ProductModel> newProductsFromGallery = [];
   
+  get uuid => null;
+
   @override
   void onInit() {
     getCartProducts();
     super.onInit();
   }
 
-  /// when the user press on purchase now button
   onPurchaseNowPressed() {
     Get.find<BaseController>().changeScreen(0);
     CustomSnackBar.showCustomSnackBar(
       title: 'Purchased',
-      message: 'Order placed with success'
+      message: 'Order placed with success',
     );
   }
 
-  /// when the user press on increase button
   onIncreasePressed(int productId) {
     var product = DummyHelper.products.firstWhere((p) => p.id == productId);
     product.quantity = product.quantity! + 1;
@@ -36,7 +34,6 @@ class CartController extends GetxController {
     update(['ProductQuantity']);
   }
 
-  /// when the user press on decrease button
   onDecreasePressed(int productId) {
     var product = DummyHelper.products.firstWhere((p) => p.id == productId);
     if (product.quantity != 0) {
@@ -46,19 +43,38 @@ class CartController extends GetxController {
     }
   }
 
-  /// when the user press on delete icon
   onDeletePressed(int productId) {
     var product = DummyHelper.products.firstWhere((p) => p.id == productId);
     product.quantity = 0;
     getCartProducts();
   }
 
-  /// get the cart products from the product list
   getCartProducts() {
     products = DummyHelper.products.where((p) => p.quantity! > 0).toList();
-    // calculate the total price
     total = products.fold<double>(0, (p, c) => p + c.price! * c.quantity!);
     update();
   }
-  
+
+  // Función para agregar un nuevo producto desde la galería
+  void addNewProductFromGallery(String imagePath) {
+  // Crea un nuevo producto utilizando la ruta de la imagen seleccionada
+  final ProductModel newProduct = ProductModel(
+    id: uuid.v4(), // Genera un ID único
+    image: imagePath,
+    // Otros atributos según tus necesidades
+  );
+
+  // Agrega el nuevo producto a la lista de nuevos productos desde la galería
+  newProductsFromGallery.add(newProduct);
+
+  // Actualiza la interfaz de usuario
+  update();
+}
+
+  // Función para confirmar la adición de los productos desde la galería a la lista principal
+  void confirmProductsFromGallery() {
+    DummyHelper.products.addAll(newProductsFromGallery);
+    newProductsFromGallery.clear();
+    getCartProducts();
+  }
 }

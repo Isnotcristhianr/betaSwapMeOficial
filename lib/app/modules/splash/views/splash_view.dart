@@ -35,12 +35,12 @@ class SplashView extends GetView<SplashController> {
                   TextSpan(
                     children: [
                       TextSpan(
-                        text: 'Online ',
+                        text: 'Intercambia ',
                         style: theme.textTheme.displayMedium?.copyWith(
                           color: theme.primaryColor),
                         ),
                       TextSpan(
-                        text: 'Shopping ',
+                        text: 'para un mundo mejor',
                         style: theme.textTheme.displayMedium,
                       ),
                     ]
